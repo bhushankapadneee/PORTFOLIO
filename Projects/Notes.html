@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes App</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: white;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+
+        .add-note-btn {
+            display: block;
+            margin: 0 auto 30px;
+            padding: 15px 40px;
+            background: white;
+            color: #667eea;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .add-note-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .notes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .note {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+        }
+
+        .note:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .note-title {
+            width: 100%;
+            padding: 10px;
+            font-size: 1.2em;
+            font-weight: bold;
+            border: none;
+            border-bottom: 2px solid #e0e0e0;
+            margin-bottom: 15px;
+            background: transparent;
+        }
+
+        .note-title:focus {
+            outline: none;
+            border-bottom-color: #667eea;
+        }
+
+        .note-content {
+            width: 100%;
+            min-height: 150px;
+            padding: 10px;
+            border: none;
+            resize: vertical;
+            font-family: 'Arial', sans-serif;
+            font-size: 1em;
+            line-height: 1.6;
+        }
+
+        .note-content:focus {
+            outline: none;
+        }
+
+        .note-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .note-date {
+            font-size: 0.8em;
+            color: #999;
+        }
+
+        .delete-btn {
+            padding: 8px 16px;
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: all 0.2s;
+        }
+
+        .delete-btn:hover {
+            background: #ee5a52;
+            transform: scale(1.05);
+        }
+
+        .empty-state {
+            text-align: center;
+            color: white;
+            font-size: 1.3em;
+            margin-top: 50px;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .notes-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>My Notes</h1>
+        
+        <button class="add-note-btn" onclick="addNote()">+ Add New Note</button>
+        
+        <div class="notes-grid" id="notesGrid">
+            <div class="empty-state">Click "Add New Note" to create your first note!</div>
+        </div>
+    </div>
+
+    <script>
+        let notes = JSON.parse(localStorage.getItem('notes')) || [];
+
+        function saveNotes() {
+            localStorage.setItem('notes', JSON.stringify(notes));
+        }
+
+        function addNote() {
+            const newNote = {
+                id: Date.now(),
+                title: 'New Note',
+                content: 'Start typing here...',
+                date: new Date().toLocaleDateString()
+            };
+            
+            notes.unshift(newNote);
+            saveNotes();
+            renderNotes();
+        }
+
+        function deleteNote(id) {
+            if (confirm('Are you sure you want to delete this note?')) {
+                notes = notes.filter(note => note.id !== id);
+                saveNotes();
+                renderNotes();
+            }
+        }
+
+        function updateNote(id, field, value) {
+            const note = notes.find(n => n.id === id);
+            if (note) {
+                note[field] = value;
+                note.date = new Date().toLocaleDateString();
+                saveNotes();
+            }
+        }
+
+        function renderNotes() {
+            const grid = document.getElementById('notesGrid');
+            
+            if (notes.length === 0) {
+                grid.innerHTML = '<div class="empty-state">Click "Add New Note" to create your first note!</div>';
+                return;
+            }
+            
+            grid.innerHTML = notes.map(note => `
+                <div class="note">
+                    <input 
+                        type="text" 
+                        class="note-title" 
+                        value="${note.title}"
+                        onchange="updateNote(${note.id}, 'title', this.value)"
+                    >
+                    <textarea 
+                        class="note-content"
+                        onchange="updateNote(${note.id}, 'content', this.value)"
+                    >${note.content}</textarea>
+                    <div class="note-footer">
+                        <span class="note-date">Last edited: ${note.date}</span>
+                        <button class="delete-btn" onclick="deleteNote(${note.id})">Delete</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Load notes on page load
+        window.onload = renderNotes;
+    </script>
+</body>
+</html>

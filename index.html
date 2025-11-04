@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bhushan Kapadne</title>
+
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png" />
+  <link rel="manifest" href="./assets/favicon/site.webmanifest" />
+  <link rel="icon" type="image/x-icon" href="./assets/favicon/favicon.ico" />
+
+  <meta name="description"
+    content="Front-End Developer Portfolio of Bhushan Kapadne. Specializing in creating modern, responsive web interfaces with React, Redux, and SASS.">
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://x.com/booobby_002" />
+  <link rel="canonical" href="https://yourwebsite.com/">
+
+  <link rel="stylesheet" href="css/style.css" />
+
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Raleway:400,600,800&display=swap" as="style">
+</head>
+
+<body>
+  <header id="hero">
+    <nav class="navbar">
+      <div class="container">
+        <h1 id="logo">
+          <a href="#">
+            <img src="./assets/logo.png" alt="Your Logo" />
+          </a>
+        </h1>
+        <ul class="nav-menu">
+          <li><a class="nav-link" href="#">Home</a></li>
+          <li><a class="nav-link" href="#about">About</a></li>
+          <li><a class="nav-link" href="#projects">Project</a></li>
+          <li><a class="nav-link" href="#contact">Contact</a></li>
+          <li>
+            <a class="nav-link btn btn-primary"
+              href="https://docs.google.com/document/d/1NolJg4ShIuhx5XMHzkizwNyUnLWibZRx/edit?usp=drive_link&ouid=116900360335572358034&rtpof=true&sd=true">RESUME
+              <i class="fas fa-arrow-right"></i></a>
+          </li>
+          <div class="theme-switch">
+            <input type="checkbox" id="switch" />
+            <label class="toggle-icons" for="switch">
+              <img class="moon" src="assets/moon.svg" alt="moon icon" />
+              <img class="sun" src="assets/sun.svg" alt="sun icon" />
+            </label>
+          </div>
+        </ul>
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </nav>
+
+    <section class="header-container">
+      <img class="profile-image" src="assets/profile-image.svg" alt="A simple icon representing a developer profile" />
+      <h1>Hi I'm Bhushan</h1>
+      <div class="content-text">
+        <h2>Front-End Developer</h2>
+        <p>
+          Welcome to my Developer Portfolio! I'm a passionate coder who brings
+          web designs to life through clean and efficient code.
+        </p>
+      </div>
+      <a href="#contact" class="btn btn-secondary">Connect With Me</a>
+    </section>
+  </header>
+
+  <section id="about" class="about-container container">
+    <div class="division"></div>
+    <div class="content-text">
+      <h2>About Me</h2>
+    </div>
+    <div class="about-card">
+      <img class="profile-image-about" src="assets/profile-image.svg" alt="Bhushan Kapadne's profile" />
+      <h3>Front-End Developer</h3>
+      <p>
+        I'm a passionate coder who brings web designs to life through clean
+        and efficient code. With 2 years of professional experience, I
+        specialize in building visually appealing and high-performance web
+        interfaces using React, Redux, and SASS.
+      </p>
+      <div class="about-skills">
+        <h4>Expertise & Interests</h4>
+        <div class="skill-grid">
+          <div class="skill-item">
+            <span>Development:</span> HTML, CSS, JavaScript, React 
+          </div>
+          <div class="skill-item">
+            <span>Tools:</span> Git, Webpack, Figma, VS Code
+          </div>
+          <div class="skill-item">
+            <span>Interests:</span> Traveling, Photography, Playing Guitar
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="project-container container">
+    <div class="division"></div>
+    <div class="content-text">
+      <h2>Projects</h2>
+      <p>Check out my web development projects</p>
+    </div>
+
+    <article class="project">
+      <!-- Project 1: Calculator -->
+      <div class="card">
+        <a href="./projects/calculator/index.html" target="_blank" class="project-card-link">
+          <img class="project-image" src="./assets/project/calculator.png" alt="Calculator project" />
+          <div class="project-info">
+            <div class="project-bio">
+              <h3>Calculator</h3>
+              <p>HTML, CSS, JavaScript</p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Project 2: To-Do List -->
+      <div class="card">
+        <a href="./projects/todo-list/index.html" target="_blank" class="project-card-link">
+          <img class="project-image" src="./assets/project/todo.png" alt="To-Do List project" />
+          <div class="project-info">
+            <div class="project-bio">
+              <h3>To-Do List</h3>
+              <p>HTML, CSS, JavaScript</p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Project 3: Quote Generator -->
+      <div class="card">
+        <a href="./projects/quote-generator/index.html" target="_blank" class="project-card-link">
+          <img class="project-image" src="./assets/project/quote.png" alt="Quote Generator project" />
+          <div class="project-info">
+            <div class="project-bio">
+              <h3>Quote Generator</h3>
+              <p>HTML, CSS, JavaScript</p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Project 4: Notes App -->
+      <div class="card">
+        <a href="./projects/notes-app/index.html" target="_blank" class="project-card-link">
+          <img class="project-image" src="./assets/project/notes.png" alt="Notes App project" />
+          <div class="project-info">
+            <div class="project-bio">
+              <h3>Notes App</h3>
+              <p>HTML, CSS, JavaScript</p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Project 5: Stopwatch & Timer -->
+      <div class="card">
+        <a href="./projects/stopwatch-timer/index.html" target="_blank" class="project-card-link">
+          <img class="project-image" src="./assets/project/timer.png" alt="Timer project" />
+          <div class="project-info">
+            <div class="project-bio">
+              <h3>Stopwatch & Timer</h3>
+              <p>HTML, CSS, JavaScript</p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Project 6: Password Generator -->
+      <div class="card">
+        <a href="./projects/password-generator/index.html" target="_blank" class="project-card-link">
+          <img class="project-image" src="./assets/project/password.png" alt="Password Generator project" />
+          <div class="project-info">
+            <div class="project-bio">
+              <h3>Password Generator</h3>
+              <p>HTML, CSS, JavaScript</p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </article>
+  </section>
+  <section id="contact" class="contact-section">
+    <div class="division"></div>
+    <div class="content-text">
+      <p class="small-text">Get In Touch</p>
+      <h2>Contact Me</h2>
+    </div>
+
+    <form class="contact-form">
+      <div class="form-row">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" class="form-input" required />
+      </div>
+      <div class="form-row">
+        <label for="email">Your Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" class="form-input" required />
+      </div>
+      <div class="form-row">
+        <label for="message">Your Message</label>
+        <textarea id="message" name="message" placeholder="Enter your message" class="form-textarea"
+          required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary send-btn">Send Message</button>
+    </form>
+  </section>
+
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-block">
+          <h3 class="footer-name">Bhushan<span class="highlight">Kapadne</span></h3>
+          <p class="footer-title">Front-End Developer</p>
+        </div>
+        <div class="footer-block social">
+          <a href="#" target="_blank" class="social-icon">
+            <img src="./assets/linkedin-icon.svg" alt="Linkedin" />
+          </a>
+          <a href="#" target="_blank" class="social-icon">
+            <img src="./assets/github-icon.svg" alt="GitHub" />
+          </a>
+          <a href="#" target="_blank" class="social-icon">
+            <img src="./assets/hashnode-icon.svg" alt="Hashnode" />
+          </a>
+          <a href="#" target="_blank" class="social-icon">
+            <img src="./assets/twitter-icon.svg" alt="Twitter" />
+          </a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Copyright &copy; BOBBY <span id="datee"></span>, All rights reserved</p>
+      </div>
+    </div>
+  </footer>
+
+  <button id="scroll-top-btn" class="scroll-top-btn" title="Go to top">&#8593;</button>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>
