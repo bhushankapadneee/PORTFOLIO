@@ -613,3 +613,16 @@ h2::selection {
     font-size: 2rem;
   }
 }
+
+
+/* === 11. FOOTER === */
+.footer-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap; /* makes it responsive */
+  width: 100%;
+  max-width: var(--width-medium);
+  margin: 0 auto 1rem auto;
+  padding: 0 1rem;
+}
