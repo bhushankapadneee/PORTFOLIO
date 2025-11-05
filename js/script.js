@@ -167,31 +167,34 @@ if (yearElement) {
 
 
 // ========================================
-// 7. CONTACT FORM HANDLING
+// 7. CONTACT FORM HANDLING (with Formspree)
 // ========================================
 const contactForm = document.querySelector(".contact-form");
+const formStatus = document.getElementById("form-status");
 
 if (contactForm) {
-  contactForm.addEventListener("submit", (e) => {
+  contactForm.addEventListener("submit", async (e) => {
     e.preventDefault();
-    
-    // Get form values
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const message = document.getElementById("message").value;
-    
-    // Basic validation
-    if (name && email && message) {
-      // Show success message
-      alert(`Thank you, ${name}! Your message has been sent successfully. I'll get back to you soon!`);
-      
-      // Reset form
-      contactForm.reset();
-      
-      // In a real scenario, you would send this data to a server
-      // Example: sendEmail(name, email, message);
-    } else {
-      alert("Please fill in all fields!");
+    const formData = new FormData(contactForm);
+
+    try {
+      const response = await fetch(contactForm.action, {
+        method: contactForm.method,
+        body: formData,
+        headers: { Accept: "application/json" },
+      });
+
+      if (response.ok) {
+        formStatus.textContent = "✅ Thank you! Your message has been sent successfully.";
+        formStatus.style.color = "green";
+        contactForm.reset();
+      } else {
+        formStatus.textContent = "❌ Oops! Something went wrong. Please try again.";
+        formStatus.style.color = "red";
+      }
+    } catch (error) {
+      formStatus.textContent = "⚠️ Network error! Please check your connection.";
+      formStatus.style.color = "orange";
     }
   });
 }
@@ -296,4 +299,5 @@ console.log(
 console.log(
   "%c🚀 Built with HTML, CSS, and JavaScript",
   "color: #4CAF50; font-size: 12px;"
+
 );
