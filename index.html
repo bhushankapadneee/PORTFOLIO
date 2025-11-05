@@ -194,30 +194,64 @@
 
   
   <section id="contact" class="contact-section">
-    <div class="division"></div>
-    <div class="content-text">
-      <p class="small-text">Get In Touch</p>
-      <h2>Contact Me</h2>
+  <div class="division"></div>
+  <div class="content-text">
+    <p class="small-text">Get In Touch</p>
+    <h2>Contact Me</h2>
+  </div>
+
+    
+  <!-- ✅ Updated contact form using Formspree -->
+  <form
+    action="https://formspree.io/f/mwpwgkgn"
+    method="POST"
+    class="contact-form"
+  >
+    <div class="form-row">
+      <label for="name">Your Name</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        placeholder="Enter your name"
+        class="form-input"
+        required
+      />
     </div>
 
-    <form class="contact-form">
-      <div class="form-row">
-        <label for="name">Your Name</label>
-        <input type="text" id="name" name="name" placeholder="Enter your name" class="form-input" required />
-      </div>
-      <div class="form-row">
-        <label for="email">Your Email</label>
-        <input type="email" id="email" name="email" placeholder="Enter your email" class="form-input" required />
-      </div>
-      <div class="form-row">
-        <label for="message">Your Message</label>
-        <textarea id="message" name="message" placeholder="Enter your message" class="form-textarea"
-          required></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary send-btn">Send Message</button>
-    </form>
-  </section>
+    <div class="form-row">
+      <label for="email">Your Email</label>
+      <input
+        type="email"
+        id="email"
+        name="_replyto"
+        placeholder="Enter your email"
+        class="form-input"
+        required
+      />
+    </div>
 
+    <div class="form-row">
+      <label for="message">Your Message</label>
+      <textarea
+        id="message"
+        name="message"
+        placeholder="Enter your message"
+        class="form-textarea"
+        required
+      ></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary send-btn">
+      Send Message
+    </button>
+
+    <!-- ✅ Optional success/error messages -->
+    <p id="form-status" class="form-status" style="margin-top:10px; font-weight:600;"></p>
+  </form>
+</section>
+
+  
   <footer id="footer">
     <div class="container">
       <div class="footer-top">
@@ -253,5 +287,6 @@
 
 
 </html>
+
 
 
